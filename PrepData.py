@@ -7,6 +7,13 @@ def readAttRaw():
     gyro = data[:-1,0:3]
     acc = data[:-1,3:6]
     mag = data[:-1,6:9]
+
+    g_scale = 131*250
+    a_scale = 16384*2
+    m_sacle = 1000
+    gyro = gyro/g_scale
+    acc  = acc /a_scale
+    mag  = mag /m_sacle
     return gyro, acc, mag
 
 def readAttEst():
